@@ -1,13 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme inline {
+  /* Colors */
+  --color-primary: #05893e;
+  --color-primary-strong: #047f39;
+  --color-primary-foreground: #15803d;
+  --color-primary-content: #f3fbf4;
+
+  --color-secondary: #166534;
+  --color-accent: #f97316;
+
+  --color-neutral: #14291c; /* emerald-950, stone-950 */
+
+  --color-base-100: #fafcfa;
+  --color-base-200: #f0f5f0;
+  --color-base-200-2: #f0f6f1;
+  --color-base-300: #e1e8e1;
+  --color-base-300-2: #dbe8de;
+  --color-base-content: #1d271f; /* stone-900, zinc-900 */
+
+  --color-info: #0284c7;
+  --color-success: #1a9951;
+  --color-warning: #f59e0b;
+  --color-error: #d03739;
+  --color-error-2: #dc2626;
+
+  /* Fonts */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Navbar Authentication Buttons */
+@layer components {
+  .auth-btn {
+    @apply relative inline-flex h-10 items-center justify-center;
+    @apply rounded-xl px-4 text-sm font-semibold;
+    @apply transition-all duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-2;
+    @apply focus-visible:ring-offset-2;
+  }
+
+  /* Sign In */
+  .auth-btn-signin {
+    @apply text-neutral/75;
+    @apply hover:bg-base-200 hover:text-primary;
+    @apply focus-visible:ring-primary/30;
+  }
+
+  /* Sign Up */
+  .auth-btn-signup {
+    @apply overflow-hidden bg-primary px-5 text-primary-content;
+    @apply shadow-sm shadow-primary/20;
+    @apply hover:-translate-y-0.5 hover:bg-secondary;
+    @apply hover:shadow-lg hover:shadow-primary/25;
+    @apply focus-visible:ring-primary/40;
+  }
+
+  /* Signup hover shine */
+  /* .shine-base {
+    @apply pointer-events-none absolute inset-0;
+    @apply -translate-x-full;
+    @apply bg-linear-to-r from-transparent via-white/15 to-transparent;
+    @apply transition-transform duration-700;
+    @apply group-hover:translate-x-full;
+  } */
 }
+
+@utility shine-base {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  transition-property: transform;
+  transition-duration: 700ms;
+
+  .group:hover & {
+    transform: translateX(100%);
+  }
+}
+
+/* absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full */
+
+/* Common Shared Properties */
+/* .shimmer-base {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  transition-property: transform;
+  transition-duration: 700ms;
+
+  .group:hover & {
+    transform: translateX(100%);
+  }
+} */
+
+/* Unique Gradient Overlays */
+/* @utility shimmer-15 {
+  @extend .shimmer-base;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+}
+
+@utility shimmer-20 {
+  @extend .shimmer-base;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+} */
