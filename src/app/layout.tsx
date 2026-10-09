@@ -71,7 +71,7 @@ export default async function RootLayout({
 
         <PriceTicker products={products} />
 
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 mx-auto max-w-6xl">{children}</main>
       </body>
     </html>
   );
