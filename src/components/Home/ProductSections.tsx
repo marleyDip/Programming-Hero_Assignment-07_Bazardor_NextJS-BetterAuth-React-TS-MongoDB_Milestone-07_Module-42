@@ -37,7 +37,9 @@ export default function ProductSections({ products }: { products: Product[] }) {
             <p className="text-xs font-bold tracking-wider text-primary">
               সম্পূর্ণ তালিকা
             </p>
+
             <h2 className="mt-1 text-2xl font-black sm:text-3xl">সব পণ্য</h2>
+
             <p className="mt-1 text-sm text-slate-600">
               আজকের সম্ভাব্য বাজারদর এক জায়গায়।
             </p>

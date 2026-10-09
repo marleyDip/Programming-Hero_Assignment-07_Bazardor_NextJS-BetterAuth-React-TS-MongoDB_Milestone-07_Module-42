@@ -1,4 +1,5 @@
 import PriceTicker from "@/components/Home/PriceTicker";
+import Footer from "@/components/layout/Footer";
 import HeaderLoader from "@/components/layout/HeaderLoader";
 import { fetchProducts } from "@/lib/api";
 import type { Metadata, Viewport } from "next";
@@ -72,6 +73,8 @@ export default async function RootLayout({
         <PriceTicker products={products} />
 
         <main className="w-full min-w-0 flex-1">{children}</main>
+
+        <Footer />
       </body>
     </html>
   );
