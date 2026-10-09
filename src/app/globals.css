@@ -28,8 +28,20 @@
   /* Fonts */
 }
 
-/* ---- Price ticker (add to app/globals.css) ---- */
+html {
+  scroll-behavior: smooth;
+}
 
+.card-shadow {
+  box-shadow: 0 10px 30px rgba(29, 39, 31, 0.055);
+}
+
+::selection {
+  background: #bde8cc;
+  color: #1d271f;
+}
+
+/* ---- Price ticker (add to app/globals.css) ---- */
 @keyframes ticker-scroll {
   from {
     transform: translateX(0);

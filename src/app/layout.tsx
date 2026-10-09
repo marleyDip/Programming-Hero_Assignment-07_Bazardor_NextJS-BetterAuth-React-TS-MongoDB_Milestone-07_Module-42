@@ -1,5 +1,5 @@
+import PriceTicker from "@/components/Home/PriceTicker";
 import HeaderLoader from "@/components/layout/HeaderLoader";
-import PriceTicker from "@/components/PriceTicker";
 import { fetchProducts } from "@/lib/api";
 import type { Metadata, Viewport } from "next";
 import { Hind_Siliguri } from "next/font/google";
@@ -71,7 +71,7 @@ export default async function RootLayout({
 
         <PriceTicker products={products} />
 
-        <main className="flex-1 mx-auto max-w-6xl">{children}</main>
+        <main className="w-full min-w-0 flex-1">{children}</main>
       </body>
     </html>
   );
