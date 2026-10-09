@@ -53,7 +53,7 @@ export default function Header() {
               </Link>
             </li>
 
-            {categories.map((c) => {
+            {/* {categories.map((c) => {
               const active = pathname === `/category/${c.slug}`;
 
               return (
@@ -74,7 +74,7 @@ export default function Header() {
                 <li key={i}>
                   <div className="skeleton h-8 w-20 rounded-full" />
                 </li>
-              ))}
+              ))} */}
           </ul>
         </nav>
       </div>
