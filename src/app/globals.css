@@ -28,6 +28,34 @@
   /* Fonts */
 }
 
+/* ---- Price ticker (add to app/globals.css) ---- */
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: ticker-scroll var(--ticker-duration, 40s) linear infinite;
+  animation-direction: var(--ticker-direction, normal);
+  will-change: transform;
+}
+
+.ticker-root[data-hover-pause="true"]:hover .ticker-track,
+.ticker-root[data-hover-pause="true"]:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
 /* Navbar Authentication Buttons */
 @layer components {
   .auth-btn {

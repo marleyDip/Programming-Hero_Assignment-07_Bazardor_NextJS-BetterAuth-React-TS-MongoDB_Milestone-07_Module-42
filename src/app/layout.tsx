@@ -1,4 +1,6 @@
 import HeaderLoader from "@/components/layout/HeaderLoader";
+import PriceTicker from "@/components/PriceTicker";
+import { fetchProducts } from "@/lib/api";
 import type { Metadata, Viewport } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import React from "react";
@@ -55,15 +57,19 @@ export const viewport: Viewport = {
   themeColor: "#05893e",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const products = await fetchProducts().catch(() => []);
+
   return (
     <html lang="bn" className={hind.className}>
       <body className="min-h-screen flex flex-col bg-base-200 text-base-content">
         <HeaderLoader />
+
+        <PriceTicker products={products} />
 
         <main className="flex-1">{children}</main>
       </body>
