@@ -12,6 +12,7 @@ export interface Category {
   name: string;
   icon: string;
   description?: string;
+  emoji: string;
 }
 
 export interface Product {

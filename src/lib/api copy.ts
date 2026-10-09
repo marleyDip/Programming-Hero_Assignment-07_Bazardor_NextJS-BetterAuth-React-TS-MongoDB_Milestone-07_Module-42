@@ -1,5 +1,5 @@
 import { parseNum } from "./formatters";
-import type { Category, MarketPrice, Product } from "./types copy";
+import type { MarketPrice } from "./types copy";
 
 const DEFAULT_API_BASES = [
   "https://api.api-store.workers.dev/api/bazardor",
@@ -187,7 +187,7 @@ function marketEntries(value: unknown): RawObject[] {
  * The API gives each market a min/max range rather than one exact price.
  * Use the midpoint as the existing MarketPrice.price value.
  */
-function normalizeMarkets(value: unknown): MarketPrice[] {
+/* function normalizeMarkets(value: unknown): MarketPrice[] {
   return marketEntries(value)
     .map((market) => {
       const name = toString(
@@ -207,7 +207,7 @@ function normalizeMarkets(value: unknown): MarketPrice[] {
     .filter(
       (market) => market.name.length > 0 && Number.isFinite(market.price),
     );
-}
+} */
 
 function getMarketBounds(value: unknown): {
   min: number | null;
@@ -227,7 +227,7 @@ function getMarketBounds(value: unknown): {
   };
 }
 
-export function normalizeProduct(raw: RawObject): Product {
+/* export function normalizeProduct(raw: RawObject): Product {
   const category = getCategoryValue(
     pick(raw, ["category", "category_slug", "categorySlug", "category_id"]),
   );
@@ -381,9 +381,9 @@ export function normalizeProduct(raw: RawObject): Product {
     avg,
     markets: markets.length ? markets : EMPTY_MARKET_PRICES,
   };
-}
+} */
 
-export function normalizeCategory(raw: RawObject): Category {
+/* export function normalizeCategory(raw: RawObject): Category {
   const slug = toString(pick(raw, ["slug", "id"]));
   return {
     slug,
@@ -393,15 +393,15 @@ export function normalizeCategory(raw: RawObject): Category {
     ),
     emoji: toString(pick(raw, ["icon", "emoji"])) || getCategoryEmoji(slug),
   };
-}
+} */
 
-export async function fetchProducts(category?: string): Promise<Product[]> {
+/* export async function fetchProducts(category?: string): Promise<Product[]> {
   const query = category ? `?category=${encodeURIComponent(category)}` : "";
   const json = await getJson(`/products${query}`);
   return unwrapList(json, ["products"]).map(normalizeProduct);
-}
+} */
 
-export async function fetchProduct(slug: string): Promise<Product | null> {
+/* export async function fetchProduct(slug: string): Promise<Product | null> {
   try {
     const json = await getJson(`/products/${encodeURIComponent(slug)}`);
     const product = unwrapOne(json, ["product"]);
@@ -423,14 +423,14 @@ export async function fetchProduct(slug: string): Promise<Product | null> {
   } catch {
     return null;
   }
-}
+} */
 
-export async function fetchCategories(): Promise<Category[]> {
+/* export async function fetchCategories(): Promise<Category[]> {
   const json = await getJson("/categories");
   return unwrapList(json, ["categories"]).map(normalizeCategory);
-}
+} */
 
-export async function fetchCategory(slug: string): Promise<Category | null> {
+/* export async function fetchCategory(slug: string): Promise<Category | null> {
   try {
     const json = await getJson(`/categories/${encodeURIComponent(slug)}`);
     const category = unwrapOne(json, ["category"]);
@@ -440,4 +440,4 @@ export async function fetchCategory(slug: string): Promise<Category | null> {
   } catch {
     return null;
   }
-}
+} */
