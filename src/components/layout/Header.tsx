@@ -13,6 +13,7 @@ import {
 } from "react";
 import { NavSkeletonItems } from "../Skeleton/NavSkeleton";
 import Logo from "./Logo";
+import UserMenu from "./UserMenu";
 
 // Types & helpers
 type NavItem = { key: string; href: string; label: string; emoji: string };
@@ -160,29 +161,16 @@ export default function Header({ categories }: { categories: Category[] }) {
       }`}
     >
       <div className="mx-auto max-w-6xl px-4">
-        {/* Row 1: logo & auth */}
+        {/* Row 1: Logo & Authentication Button */}
         <div className="flex items-center justify-between gap-1.5 sm:gap-3 py-3">
+          {/* Logo */}
           <Logo />
 
-          <div className="flex items-center gap-1 sm:gap-2">
-            <Link
-              href="/signin"
-              className="group relative inline-flex h-10 items-center justify-center rounded-xl px-2 md:px-4 text-xs sm:text-sm font-semibold text-neutral/75 transition-all duration-300 hover:bg-base-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2"
-            >
-              <span className="relative">সাইন ইন</span>
-            </Link>
-
-            <Link
-              href="/signup"
-              className="group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-xl bg-primary px-2.5 md:px-5 text-xs sm:text-sm font-semibold text-primary-content shadow-sm shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-foreground hover:shadow-lg hover:shadow-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
-            >
-              <span className="shine-base bg-linear-to-r from-transparent via-white/15 to-transparent" />
-              <span className="relative z-10">সাইন আপ</span>
-            </Link>
-          </div>
+          {/* Auth */}
+          <UserMenu />
         </div>
 
-        {/* Row 2: category navigation */}
+        {/* Row 2: Category Navigation */}
         <div className="relative -mx-4">
           {/* Left fade + arrow */}
           <div
@@ -202,7 +190,7 @@ export default function Header({ categories }: { categories: Category[] }) {
             </button>
           </div>
 
-          {/* Right fade + arrow */}
+          {/* Right fade & arrow */}
           <div
             aria-hidden={!canRight}
             className={`pointer-events-none absolute inset-y-0 right-0 z-20 flex w-14 items-center justify-end bg-linear-to-l from-white via-white/90 to-transparent pr-3 transition-opacity duration-200 ${
