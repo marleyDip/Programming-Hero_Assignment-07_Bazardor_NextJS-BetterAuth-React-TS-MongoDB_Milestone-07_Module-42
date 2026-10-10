@@ -5,6 +5,7 @@ import { fetchProducts } from "@/lib/api";
 import type { Metadata, Viewport } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const hind = Hind_Siliguri({
@@ -75,6 +76,8 @@ export default async function RootLayout({
         <main className="w-full min-w-0 flex-1">{children}</main>
 
         <Footer />
+
+        <Toaster position="bottom-right" />
       </body>
     </html>
   );

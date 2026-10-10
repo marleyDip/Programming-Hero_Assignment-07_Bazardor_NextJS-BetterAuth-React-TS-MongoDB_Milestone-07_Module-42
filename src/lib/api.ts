@@ -7,7 +7,14 @@ const API_BASES = [
     "https://api.api-store.workers.dev/api/bazardor",
   process.env.NEXT_PUBLIC_API_BASE_2 ??
     "https://api.abcz.workers.dev/api/bazardor",
+  process.env.NEXT_PUBLIC_API_BASE_3 ??
+    "https://openapi.programming-hero.com/api/bazardor",
 ] as const;
+
+// const API_BASES = [
+//   process.env.NEXT_PUBLIC_API_BASE_3 ??
+//     "https://openapi.programming-hero.com/api/bazardor",
+// ] as const;
 
 const REQUEST_TIMEOUT_MS = 8_000;
 /** Prices change daily; cache for 5 minutes instead of `no-store`. */
