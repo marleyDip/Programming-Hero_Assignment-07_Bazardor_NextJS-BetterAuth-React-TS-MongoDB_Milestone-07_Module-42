@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CategoryPage({ params, searchParams }: Props) {
-  await new Promise((r) => setTimeout(r, 4000));
+  // await new Promise((r) => setTimeout(r, 4000));
 
   const { slug } = await params;
 
