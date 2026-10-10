@@ -1,4 +1,4 @@
-import EmptyState from "@/components/Category/EmptyState";
+import EmptyState from "@/components/Common/EmptyState";
 import SortControl, {
   parseSort,
   type SortKey,

@@ -96,3 +96,19 @@ export function todayBanglaDate(date = new Date()): string {
     year: "numeric",
   }).format(date);
 }
+
+const n2 = new Intl.NumberFormat("bn-BD", { maximumFractionDigits: 2 });
+
+const n1 = new Intl.NumberFormat("bn-BD", { maximumFractionDigits: 1 });
+
+/** 148 → ১৪৮ */
+export const bn = (v: number) => n2.format(v);
+
+/** 2.14 → ২.১ */
+export const bnPct = (v: number) => n1.format(v);
+
+/** 148 → ৳১৪৮ */
+export const taka = (v: number) => `৳${n2.format(v)}`;
+
+/** "প্রতি কেজি" → "কেজি" */
+export const shortUnit = (unit: string) => unit.replace(/^প্রতি\s*/, "").trim();
