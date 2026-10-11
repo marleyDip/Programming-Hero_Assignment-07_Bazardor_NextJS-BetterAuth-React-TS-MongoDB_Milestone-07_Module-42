@@ -1,3 +1,4 @@
+import { HeaderUser } from "@/components/layout/UserMenuServer";
 import { headers } from "next/headers";
 import { cache } from "react";
 import { auth } from "./auth";
@@ -16,6 +17,7 @@ export async function getAccountProviders(): Promise<string[] | null> {
     const accounts = await auth.api.listUserAccounts({
       headers: await headers(),
     });
+
     return accounts.map((a) => a.providerId);
   } catch {
     return null;
@@ -23,10 +25,10 @@ export async function getAccountProviders(): Promise<string[] | null> {
 }
 
 /** Session → the small, serialisable user object the header needs. */
-/* export async function getHeaderUser(): Promise<HeaderUser | null> {
+export async function getHeaderUser(): Promise<HeaderUser | null> {
   const session = await getSession().catch(() => null);
   if (!session?.user) return null;
 
   const { id, name, email, image, emailVerified } = session.user;
   return { id, name, email, image, emailVerified };
-} */
+}

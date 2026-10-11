@@ -11,7 +11,7 @@ import {
 } from "@/components/Auth/Shared";
 
 import { authClient } from "@/lib/auth-client";
-import { LogOut } from "lucide-react";
+import { CornerDownLeft } from "lucide-react";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -686,7 +686,11 @@ function SignOutButton({ variant }: { variant: "pill" | "full" }) {
 
   const onClick = () => (confirming ? signOut() : setConfirming(true));
 
-  const icon = loading ? <Spinner /> : <LogOut size={16} strokeWidth={2.2} />;
+  const icon = loading ? (
+    <Spinner />
+  ) : (
+    <CornerDownLeft size={16} strokeWidth={2.2} />
+  );
 
   const label = loading
     ? "সাইন আউট হচ্ছে…"
