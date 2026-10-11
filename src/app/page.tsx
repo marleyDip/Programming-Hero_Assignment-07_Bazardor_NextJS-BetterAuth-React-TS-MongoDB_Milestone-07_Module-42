@@ -31,12 +31,12 @@ export default async function Home() {
         stats={user ? getSiteStats(products, categories) : undefined}
       />
 
-      {/* <ProductSections products={products} /> */}
+      <ProductSections products={products} />
 
       {/* target of the hero's "সব পণ্যের দাম দেখুন" button (#সব-পণ্য) */}
-      <div id="সব-পণ্য" className="scroll-mt-32">
+      {/* <div id="সব-পণ্য" className="scroll-mt-32">
         <ProductSections products={products} />
-      </div>
+      </div> */}
     </>
   );
 }

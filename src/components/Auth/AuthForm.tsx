@@ -249,7 +249,7 @@ export default function AuthForm({
     return e;
   };
 
-  // Email & password submit
+  // SignIn & SignUp Function
   const onSubmit = async (event: React.SubmitEvent<HTMLElement>) => {
     event.preventDefault();
     if (busy) return;

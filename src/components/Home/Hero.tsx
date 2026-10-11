@@ -19,7 +19,9 @@ export default function Hero({
   /** Where the main button goes. Default scrolls to the products list. */
   productsHref?: string;
 }) {
-  const firstName = user?.name?.trim().split(/\s+/)[0][1];
+  // const firstName = user?.name?.trim().split(/\s+/)[0];
+
+  const firstName = user?.name?.trim().split(/\s+/).slice(0, 3).join(" ");
 
   return (
     <section className="mx-auto my-6 w-full max-w-6xl px-4 sm:my-8 lg:my-10">
