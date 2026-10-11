@@ -3,8 +3,8 @@
 import { authClient } from "@/lib/auth-client";
 import { Eye, EyeOff, Loader, Lock, Mail, User } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useId, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
 type Mode = "signin" | "signup";
@@ -50,9 +50,11 @@ function authError(error: {
     USER_ALREADY_EXISTS: "এই ইমেইল দিয়ে আগেই অ্যাকাউন্ট খোলা হয়েছে",
     USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL:
       "এই ইমেইল দিয়ে আগেই অ্যাকাউন্ট খোলা হয়েছে",
+
     INVALID_EMAIL_OR_PASSWORD: "ইমেইল বা পাসওয়ার্ড সঠিক নয়",
     INVALID_PASSWORD: "পাসওয়ার্ড সঠিক নয়",
     INVALID_EMAIL: "সঠিক ইমেইল দিন",
+
     PASSWORD_TOO_SHORT: "পাসওয়ার্ড খুব ছোট",
     PASSWORD_TOO_LONG: "পাসওয়ার্ড খুব বড়",
     EMAIL_NOT_VERIFIED: "আগে আপনার ইমেইল যাচাই করুন",
@@ -61,11 +63,15 @@ function authError(error: {
   if (error.code && byCode[error.code]) return byCode[error.code];
   if (error.status === 429)
     return "অনেকবার চেষ্টা করা হয়েছে, কিছুক্ষণ পরে আবার চেষ্টা করুন";
+
   if (error.message) return error.message;
+
   if (error.status === 404)
     return "অথ রুট পাওয়া যায়নি (404) — /api/auth/[...all] রুট আছে কিনা দেখুন";
+
   if (error.status && error.status >= 500)
     return `সার্ভার ত্রুটি (${error.status}) — টার্মিনালের লগ দেখুন`;
+
   return "কিছু একটা ভুল হয়েছে, আবার চেষ্টা করুন";
 }
 
@@ -184,6 +190,20 @@ export default function AuthForm({
   const signup = mode === "signup";
   const router = useRouter();
 
+  const searchParams = useSearchParams();
+  const toastShown = useRef(false);
+
+  useEffect(() => {
+    const message = searchParams.get("message");
+
+    if (message && !toastShown.current) {
+      toastShown.current = true;
+      toast.error(message);
+
+      router.replace(window.location.pathname);
+    }
+  }, [searchParams, router]);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -191,6 +211,7 @@ export default function AuthForm({
   const [confirm, setConfirm] = useState("");
   const [show, setShow] = useState(false);
   const [conformShow, setConformShow] = useState(false);
+
   const [agree, setAgree] = useState(false);
   const [remember, setRemember] = useState(true);
 
@@ -240,6 +261,9 @@ export default function AuthForm({
     setLoading(true);
     const toastId = toast.loading(
       signup ? "অ্যাকাউন্ট তৈরি হচ্ছে…" : "সাইন ইন হচ্ছে…",
+      {
+        className: "toast-custom toast-info",
+      },
     );
 
     try {
@@ -263,7 +287,9 @@ export default function AuthForm({
         // Dev only: shows the real Better Auth status / code / message.
         if (process.env.NODE_ENV !== "production")
           console.error("[auth]", error);
+
         toast.error(authError(error), { id: toastId });
+
         setLoading(false);
         return;
       }

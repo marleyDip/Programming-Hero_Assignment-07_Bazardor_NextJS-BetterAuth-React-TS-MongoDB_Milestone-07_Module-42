@@ -1,3 +1,4 @@
+import SplashScreen from "@/components/Common/SplashScreen";
 import PriceTicker from "@/components/Home/PriceTicker";
 import Footer from "@/components/layout/Footer";
 import HeaderLoader from "@/components/layout/HeaderLoader";
@@ -69,6 +70,8 @@ export default async function RootLayout({
   return (
     <html lang="bn" className={hind.className}>
       <body className="min-h-screen flex flex-col bg-base-200 text-base-content">
+        <SplashScreen />
+
         <HeaderLoader />
 
         <PriceTicker products={products} />
@@ -77,7 +80,45 @@ export default async function RootLayout({
 
         <Footer />
 
-        <Toaster position="bottom-right" />
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          gutter={12}
+          toastOptions={{
+            duration: 3500,
+
+            style: {
+              background: "#111827",
+              color: "#f9fafb",
+              border: "1px solid rgba(148, 163, 184, 0.2)",
+              borderRadius: "14px",
+              padding: "14px 18px",
+              fontSize: "14px",
+              fontWeight: 500,
+              boxShadow: "0 12px 35px rgba(0, 0, 0, 0.25)",
+              backdropFilter: "blur(16px)",
+              maxWidth: "420px",
+            },
+
+            success: {
+              duration: 3000,
+
+              iconTheme: {
+                primary: "#1a9951",
+                secondary: "#ffffff",
+              },
+            },
+
+            error: {
+              duration: 3000,
+
+              iconTheme: {
+                primary: "#dc2626",
+                secondary: "#ffffff",
+              },
+            },
+          }}
+        />
       </body>
     </html>
   );

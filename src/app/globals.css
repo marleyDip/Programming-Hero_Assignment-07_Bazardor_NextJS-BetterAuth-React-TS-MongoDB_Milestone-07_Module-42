@@ -28,6 +28,41 @@
   /* Fonts */
 }
 
+/* Shared toast styling */
+.toast-custom {
+  border-radius: 14px !important;
+  padding: 14px 18px !important;
+  font-family: inherit;
+  backdrop-filter: blur(16px);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+/* Info */
+.toast-info {
+  border: 1px solid var(--color-info) !important;
+  box-shadow: 0 0 20px rgba(2, 132, 199, 0.16);
+}
+
+/* Success */
+.toast-success {
+  border: 1px solid var(--color-success) !important;
+  box-shadow: 0 0 20px rgba(26, 153, 81, 0.16);
+}
+
+/* Warning */
+.toast-warning {
+  border: 1px solid var(--color-warning) !important;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.16);
+}
+
+/* Error */
+.toast-error {
+  border: 1px solid var(--color-error) !important;
+  box-shadow: 0 0 20px rgba(208, 55, 57, 0.16);
+}
+
 html {
   scroll-behavior: smooth;
 }

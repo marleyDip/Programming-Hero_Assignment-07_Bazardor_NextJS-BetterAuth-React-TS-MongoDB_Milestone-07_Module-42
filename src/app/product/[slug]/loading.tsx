@@ -1,4 +1,4 @@
-export default function ProductLoading() {
+export default function ProductPageLoading() {
   return (
     <main
       role="status"

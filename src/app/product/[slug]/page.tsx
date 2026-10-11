@@ -1,4 +1,3 @@
-import EmptyState from "@/components/Common/EmptyState";
 import MarketSection from "@/components/Product/MarketSection";
 import PriceHistoryChart from "@/components/Product/PriceHistoryChart";
 import ProductCard from "@/components/Product/ProductCard";
@@ -9,9 +8,11 @@ import { bn, bnPct, shortUnit, taka } from "@/lib/formatters";
 import { ChevronRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string }> };
 
+/* Metadata */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = await fetchProduct(slug); // deduped by react cache()
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/* Section Title */
 function SectionTitle({
   icon,
   title,
@@ -52,11 +54,14 @@ function SectionTitle({
   );
 }
 
+/* Main Page */
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = await fetchProduct(slug);
 
-  if (!product) {
+  if (!product) notFound();
+
+  /* if (!product) {
     return (
       <EmptyState
         code="৪০৪"
@@ -65,7 +70,7 @@ export default async function ProductPage({ params }: Props) {
         description="আপনি যে পণ্যটি খুঁজছেন তা হয়তো সরানো হয়েছে অথবা লিংকটি ভুল।"
       />
     );
-  }
+  } */
 
   const related = (await fetchProducts(product.category).catch(() => []))
     .filter((p) => p.slug !== product.slug && p.category === product.category)
