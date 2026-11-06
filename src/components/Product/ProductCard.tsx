@@ -15,7 +15,9 @@ export default function ProductCard({
 
   return (
     <Link
-      href={`/product/${encodeURIComponent(product.slug)}`}
+      // href={`/product/${encodeURIComponent(product.slug)}`}
+
+      href={`/product/${encodeURIComponent(product.id)}`}
       className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-base-300/80 bg-base-100 p-4 sm:p-5 shadow-[0_2px_12px_rgba(20,41,28,0.035)] transition-all duration-300 ease-out hover:-translate-y-1 hover:ring-1 hover:ring-inset focus-visible:outline-none focus-visible:ring- focus-visible:ring-offset-2
         ${
           positive

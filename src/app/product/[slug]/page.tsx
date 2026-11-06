@@ -57,6 +57,8 @@ function SectionTitle({
 /* Main Page */
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
+  // console.log("Product Id", slug);
+
   const product = await fetchProduct(slug);
 
   if (!product) notFound();
