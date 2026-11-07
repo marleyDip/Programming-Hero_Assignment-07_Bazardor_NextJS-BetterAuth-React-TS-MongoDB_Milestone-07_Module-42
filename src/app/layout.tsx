@@ -1,4 +1,5 @@
 import SplashScreen from "@/components/Common/SplashScreen";
+import DeveloperJsonLd from "@/components/DeveloperJsonLd";
 import PriceTicker from "@/components/Home/PriceTicker";
 import Footer from "@/components/layout/Footer";
 import HeaderLoader from "@/components/layout/HeaderLoader";
@@ -16,7 +17,8 @@ const hind = Hind_Siliguri({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_APP_URL ?? "https://sofian-bazardor.vercel.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -26,25 +28,38 @@ export const metadata: Metadata = {
     template: "%s | বাজার দর",
   },
   description:
-    "বাংলাদেশের বাজারে চাল, ডাল, তেল, সবজি, মাছ ও মাংসের নিত্যপ্রয়োজনীয় পণ্যের আজকের দাম এক নজরে দেখুন।",
+    "বাংলাদেশের বাজারে চাল, ডাল, তেল, সবজি, মাছ ও মাংসের নিত্যপ্রয়োজনীয় পণ্যের আজকের দাম এক নজরে দেখুন। নিত্যপ্রয়োজনীয় পণ্যের বাজারদর জানুন সহজেই। সঠিক তথ্যের মাধ্যমে কেনাকাটার সিদ্ধান্ত নিন সচেতনভাবে।",
 
   // description: "বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের আজকের বাজারদর এক নজরে দেখুন।",
 
-  keywords: ["বাজার দর", "বাংলাদেশ", "পণ্যের দাম", "BazarDor"],
+  keywords: [
+    "বাজার দর",
+    "বাংলাদেশ",
+    "পণ্যের দাম",
+    "BazarDor",
+    "নিত্যপ্রয়োজনীয় পণ্য",
+    "বাজারদর বাংলাদেশ",
+  ],
+
+  authors: [{ name: "Md Sofian Hasan", url: "https://marleydip.netlify.app/" }],
+  creator: "Md Sofian Hasan",
+  alternates: { canonical: "/" },
 
   openGraph: {
-    title: "বাজার দর — নিত্যপণ্যের দাম এক নজরে",
-    description: "চাল, ডাল, তেল, সবজি, মাছ, মাংস ও মসলার দাম এক জায়গায়।",
+    title: "বাজার দর | নিত্যপণ্যের দাম এক নজরে",
+    description:
+      "চাল, ডাল, তেল, সবজি, মাছ, মাংস ও মসলার দাম এক জায়গায়। নিত্যপ্রয়োজনীয় পণ্যের বাজারদর জানুন সহজেই।",
     type: "website",
     locale: "bn_BD",
     url: SITE_URL,
     siteName: "বাজার দর",
+    // images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
 
   twitter: {
     card: "summary_large_image",
     title: "বাজার দর",
-    description: "বাংলাদেশের নিত্যপণ্যের বাজারদর এক নজরে।",
+    description: "বাংলাদেশের নিত্যপণ্যের বাজারদর জানুন সহজেই।",
   },
 
   robots: {
@@ -70,6 +85,8 @@ export default async function RootLayout({
   return (
     <html lang="bn" className={hind.className}>
       <body className="min-h-screen flex flex-col bg-base-200 text-base-content">
+        <DeveloperJsonLd />
+
         <SplashScreen />
 
         <HeaderLoader />

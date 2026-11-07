@@ -367,3 +367,34 @@ The following are standard scripts for a typical Next.js project. Confirm their 
 <img src="https://img.shields.io/badge/PERN-Stack-336791?style=for-the-badge" alt="PERN Stack" />
 
 </div>
+
+---
+
+## 🙏 কৃতজ্ঞতা ও শেখার স্বীকৃতি
+
+### Programming Hero-কে বিশেষ ধন্যবাদ
+
+এই প্রজেক্টগুলো আমি তৈরি করেছি **AI-Driven Full Stack Web Engineering Course Level-1 Batch-14** কোর্সে আমার শেখার যাত্রার অংশ হিসেবে।
+
+**Programming Hero**-র পুরো টিম, ইন্সট্রাক্টর, মেন্টর এবং কমিউনিটির প্রতি আমি আন্তরিক কৃতজ্ঞতা জানাই। সুসংগঠিত শেখার উপকরণ, বাস্তবমুখী দিকনির্দেশনা এবং উৎসাহব্যঞ্জক পরিবেশ দিয়ে তারা একজন ডেভেলপার হিসেবে আমার বেড়ে ওঠায় বড় ভূমিকা রেখেছেন।
+
+এই যাত্রায় আমি আধুনিক ওয়েব ডেভেলপমেন্টের ধারণাগুলো আরও ভালোভাবে বুঝতে পেরেছি, ফুল-স্ট্যাক অ্যাপ্লিকেশনের আর্কিটেকচার নিয়ে কাজ করেছি এবং শেখা জ্ঞান কাজে লাগিয়ে বাস্তব প্রজেক্ট তৈরি করেছি।
+
+### 🚀 আমার প্রজেক্টসমূহ
+
+<!-- - **BookNook** — একটি ফুল-স্ট্যাক লাইব্রেরি ম্যানেজমেন্ট অ্যাপ্লিকেশন, যেখানে বই দেখা, ধার নেওয়া, ফেরত দেওয়া এবং নিজের বই পরিচালনা করা যায়। -->
+- **বাজার দর (Bazardor)** — নিত্যপ্রয়োজনীয় পণ্যের বাজারদর জানা এবং সচেতনভাবে কেনাকাটার সিদ্ধান্ত নেওয়ার একটি ওয়েব অ্যাপ্লিকেশন।
+  Next.js, BetterAuth, React, TypeScript ও MongoDB দিয়ে তৈরি।
+  [🔗 লাইভ ডেমো](https://sofian-bazardor.vercel.app) · [💻 GitHub রিপোজিটরি](https://github.com/marleyDip/Programming-Hero_Assignment-07_Bazardor_NextJS-BetterAuth-React-TS-MongoDB_Milestone-07_Module-42)
+
+**বাজার দর শুধু কোর্সের অ্যাসাইনমেন্ট নয়। শেখা ধারণাগুলোকে বাস্তব ও কার্যকর অ্যাপ্লিকেশনে রূপ দেওয়ার সুযোগ।**
+
+শেখা, নতুন কিছু করে দেখা, সমস্যার সমাধান করা এবং আরও ভালো সফটওয়্যার তৈরি করার অনুপ্রেরণার জন্য বিশেষ ধন্যবাদ।
+
+**শেখার কোনো শেষ নেই। প্রতিটি প্রজেক্ট সামনে এগিয়ে যাওয়ার আরেকটি ধাপ।** 🚀
+
+<p align="center">
+  <a href="https://codelab.programming-hero.com/u/marleydip">
+    <img src="https://img.shields.io/badge/Programming%20Hero-Learning%20Partner-FF4B4B?style=for-the-badge" alt="Programming Hero" />
+  </a>
+</p>
